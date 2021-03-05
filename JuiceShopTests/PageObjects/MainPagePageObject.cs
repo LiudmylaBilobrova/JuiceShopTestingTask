@@ -20,7 +20,7 @@ namespace JuiceShopTests.PageObjects
 
         public void BuyBananaJuice()
         {
-            //Thread.Sleep(5000);
+            Thread.Sleep(5000);
             webdriver.FindElement(addingBananaJuiceToBasketButton).Click(); 
         }
     }
