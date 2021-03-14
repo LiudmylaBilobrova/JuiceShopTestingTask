@@ -6,11 +6,13 @@ using OpenQA.Selenium;
 
 namespace JuiceShopTests.PageObjects
 {
-    class LandingPagePageObject : BaseTestClass
+    class LandingPagePageObject
     {
+        private IWebDriver webdriver;
+
         private readonly By dismissWelcomePopupButton = By.XPath("//button[@aria-label='Close Welcome Banner']");
 
-
+       
         public LandingPagePageObject(IWebDriver driver)
         {
             webdriver = driver;

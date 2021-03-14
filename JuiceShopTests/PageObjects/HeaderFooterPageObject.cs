@@ -7,8 +7,10 @@ using OpenQA.Selenium;
 
 namespace JuiceShopTests.PageObjects
 {
-    class HeaderFooterPageObject : BaseTestClass
+    class HeaderFooterPageObject
     {
+        private IWebDriver webdriver;
+
         private readonly By accountButton = By.XPath("//button[@id='navbarAccount']");
         private readonly By loginAccountButton = By.XPath("//button[@id='navbarLoginButton']");
 

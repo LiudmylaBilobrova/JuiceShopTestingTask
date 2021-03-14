@@ -6,8 +6,10 @@ using OpenQA.Selenium;
 
 namespace JuiceShopTests.PageObjects
 {
-    class LoginPopupPageObject : BaseTestClass
+    class LoginPopupPageObject
     {
+        private IWebDriver webdriver;
+
         private readonly By emailInputButton = By.XPath("//input[@id='email']");
         private readonly By passwordInputButton = By.XPath("//input[@id='password']");
         private readonly By loginButton = By.XPath("//button[@id='loginButton']");

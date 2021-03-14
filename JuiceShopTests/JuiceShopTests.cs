@@ -36,6 +36,8 @@ namespace JuiceShopTests
         [Test]
         public void MakingPurchaseTest()
         {
+            webdriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
             var landingPage = new LandingPagePageObject(webdriver);
             landingPage
                 .DismissWelcomePopup();
@@ -51,6 +53,18 @@ namespace JuiceShopTests
             var mainPage = new MainPagePageObject(webdriver);
             mainPage
                 .BuyBananaJuice();
+            mainPage
+                .DismissCookies();
+            mainPage
+                .NavigateToNextPage();
+            mainPage
+                .ByMug();
+            mainPage
+                .OpenShoppingCart();
+
+            var yourBasket = new YourBasketPageObject(webdriver);
+            yourBasket
+                .Chekout();
 
         }
     }
