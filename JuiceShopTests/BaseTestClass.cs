@@ -26,7 +26,7 @@ namespace JuiceShopTests
             webdriver.Manage().Cookies.DeleteAllCookies();
             webdriver.Navigate().GoToUrl(TestSettings.website);
             webdriver.Manage().Window.Maximize();
-            //webdriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            webdriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         [OneTimeTearDown]
