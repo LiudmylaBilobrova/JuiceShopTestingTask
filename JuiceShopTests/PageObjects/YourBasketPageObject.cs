@@ -19,6 +19,8 @@ namespace JuiceShopTests.PageObjects
 
         public void Chekout()
         {
+            Thread.Sleep(25000);
+            //WaitUntil.WaitElement(webdriver, chekoutButton);
             webdriver.FindElement(chekoutButton).Click();
         }
 

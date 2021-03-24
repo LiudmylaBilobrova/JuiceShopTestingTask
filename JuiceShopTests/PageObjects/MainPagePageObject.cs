@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using OpenQA.Selenium;
-
+using OpenQA.Selenium.Support.UI;
 
 namespace JuiceShopTests.PageObjects
 {
@@ -27,6 +27,9 @@ namespace JuiceShopTests.PageObjects
         
         public void BuyBananaJuice()
         {
+            /*var wait = new WebDriverWait(webdriver, new TimeSpan(0,0,30));
+            wait.Until(c => c.FindElement(addingBananaJuiceToBasketButton));*/
+            WaitUntil.WaitElement(webdriver, addingAppleJuiceToBasketButton);
             webdriver.FindElement(addingBananaJuiceToBasketButton).Click(); 
         }
         
@@ -47,6 +50,7 @@ namespace JuiceShopTests.PageObjects
 
         public YourBasketPageObject OpenShoppingCart()
         {
+
             webdriver.FindElement(yourBasketButton).Click();
 
             return new YourBasketPageObject(webdriver);

@@ -36,8 +36,6 @@ namespace JuiceShopTests
         [Test]
         public void MakingPurchaseTest()
         {
-            //webdriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
             var landingPage = new LandingPagePageObject(webdriver);
             landingPage
                 .DismissWelcomePopup();
