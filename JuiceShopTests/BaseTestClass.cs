@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -19,27 +20,27 @@ namespace JuiceShopTests
             //webdriver = new ChromeDriver();
         }
 
-        [SetUp]
+
+            [SetUp]
         protected void DoBeforeEachTest()
         {
             webdriver = new ChromeDriver();
             webdriver.Manage().Cookies.DeleteAllCookies();
             webdriver.Navigate().GoToUrl(TestSettings.website);
             webdriver.Manage().Window.Maximize();
-            //webdriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            webdriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
-        [OneTimeTearDown]
-        protected void DoAfterAllTests()
-        {
-        
-        }
-
+ 
         [TearDown]
         protected void DoAfterEachTest()
         {
-            //webdriver.Quit();
-            //webdriver.Dispose();
+            var makingScreenshotFailed = new Exceptions(webdriver);
+            makingScreenshotFailed
+                .MakeScreenshot();
+
+            webdriver.Quit();
+            webdriver.Dispose();
         }
     }
 }

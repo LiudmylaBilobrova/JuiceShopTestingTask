@@ -8,7 +8,7 @@ namespace JuiceShopTests
 {
     public static class WaitUntil
     {
-        /*
+        
         public static void PageLoadWait(IWebDriver webDriver, string website)
         {
             try
@@ -21,7 +21,7 @@ namespace JuiceShopTests
                 throw;
             }
         }
-        */
+        
 
         public static void WaitElement(IWebDriver webDriver, By locator)
         {

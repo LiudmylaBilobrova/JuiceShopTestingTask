@@ -27,8 +27,6 @@ namespace JuiceShopTests.PageObjects
         
         public void BuyBananaJuice()
         {
-            /*var wait = new WebDriverWait(webdriver, new TimeSpan(0,0,30));
-            wait.Until(c => c.FindElement(addingBananaJuiceToBasketButton));*/
             WaitUntil.WaitElement(webdriver, addingAppleJuiceToBasketButton);
             webdriver.FindElement(addingBananaJuiceToBasketButton).Click(); 
         }

@@ -20,6 +20,7 @@ namespace JuiceShopTests.PageObjects
 
         public void DismissWelcomePopup()
         {
+            //WaitUntil.PageLoadWait(webdriver, TestSettings.website);
             webdriver.FindElement(dismissWelcomePopupButton).Click();
         }
     }

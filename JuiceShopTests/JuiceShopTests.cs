@@ -25,14 +25,26 @@ namespace JuiceShopTests
     [TestFixture]
     public class JuiceShopTests : BaseTestClass
     {
-        /*
+       
         [Test]
         public void InvalidLoginTest()
         {
-        
-        }
-        */
+            var landingPage = new LandingPagePageObject(webdriver);
+            landingPage
+                .DismissWelcomePopup();
 
+            var headerFooter = new HeaderFooterPageObject(webdriver);
+            headerFooter
+                .SignIn();
+
+            var loginPopup = new LoginPopupPageObject(webdriver);
+            loginPopup
+                .Login(TestSettings.validLogin, TestSettings.invalidPassword);
+
+            Assert.IsTrue(loginPopup.CheckMessageAfterInvalidLogin("Invalid email or password."));
+
+        }
+        
         [Test]
         public void MakingPurchaseTest()
         {
@@ -60,7 +72,26 @@ namespace JuiceShopTests
                 .ByMug();
             var shoppingCart = mainPage
                 .OpenShoppingCart();
-            shoppingCart.Chekout();
+            shoppingCart
+                .Chekout();
+            shoppingCart
+                .AddressSelection();
+            shoppingCart
+                .ContinueToDelivery();
+            shoppingCart
+                .FastDeliverySelection();
+            shoppingCart
+                .ContinueToPaimentOptions();
+            shoppingCart
+                .CardSelection();
+            shoppingCart
+                .ContinueToReview();
+            shoppingCart
+                .PayOrder();
+
+            Assert.IsTrue(shoppingCart.CheckTextAfterPurchase("Thank you for your purchase!"));
+
+            Assert.IsTrue(shoppingCart.CkeckBusketIsEmpty("0"));
                 
         }
     }
